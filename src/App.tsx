@@ -1,10 +1,10 @@
-import { Articles } from "./Components/Articles";
+import { ArticlesCounter } from "./Components/ArticlesCounter";
 
 function App() {
   return (
     <div className="App">
       App
-      <Articles />
+      <ArticlesCounter />
     </div>
   );
 }

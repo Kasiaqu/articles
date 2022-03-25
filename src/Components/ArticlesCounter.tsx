@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-
-export const Articles = () => {
-  interface articles {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
-  }
-
-  const [articles, setArticles] = useState<articles[]>([]);
+import { Article } from "./Article";
+import { article } from "../models/article";
+export const ArticlesCounter = () => {
+  const [articles, setArticles] = useState<article[]>([]);
   const fetchData = () => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
@@ -21,10 +15,12 @@ export const Articles = () => {
   return (
     <div>
       {articles.map((article) => (
-        <div key={article.id}>
-          <h3>{article.title}</h3>
-          <p>{article.body}</p>
-        </div>
+        <Article
+          key={article.id}
+          id={article.id}
+          title={article.title}
+          body={article.body}
+        />
       ))}
     </div>
   );
