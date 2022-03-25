@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Article } from "./Article";
 import { article } from "../models/article";
+import s from "./articlesCounter.module.css";
 export const ArticlesCounter = () => {
   const [articles, setArticles] = useState<article[]>([]);
   const fetchData = () => {
@@ -12,8 +13,9 @@ export const ArticlesCounter = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
-    <div>
+    <div className={s.articlesCounter}>
       {articles.map((article) => (
         <Article
           key={article.id}
